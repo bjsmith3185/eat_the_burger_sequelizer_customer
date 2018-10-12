@@ -7,9 +7,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* area {
-    margin-bottom: 130px;
-} */
+
 
 .main-title {
     font-size: 50px;
@@ -22,12 +20,12 @@ body {
 }
 
 .col2 {
-    /* background: lightblue; */
+
     color: red;
 }
 
 .col4 {
-    /* background: lightblue; */
+
     color: gray;
 }
 
@@ -48,10 +46,16 @@ ul {
     text-decoration: underline;
 }
 
+.burger-area {
+    border: 1px solid rgb(112, 112, 4);
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
 .burger-name {
     color: orange;
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 18px;
   
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     
@@ -86,5 +90,9 @@ ul {
 .image-info {
     height: 150px;
     width: 150px;
+}
+
+#submit-order {
+    margin-bottom: 50px;
 }
 

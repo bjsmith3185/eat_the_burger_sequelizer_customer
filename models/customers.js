@@ -13,18 +13,9 @@ module.exports = function (sequelize, DataTypes) {
         },
     });
 
-    // Customers.associate = function(models) {
-    //     // Associating Author with Posts
-    //     // When an Author is deleted, also delete any associated Posts
-    //     Customers.hasMany(models.Burgers, {
-  
-    //     });
-    //   };
-
-
+ 
     Customers.associate = function(models) {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
+        
         Customers.hasMany(models.Burgers, {
   
         });

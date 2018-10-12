@@ -1,67 +1,151 @@
 <div class="main-title text-center">Eat the Burgers!</div>
 
-<div class="container-fluid">
-  <div class="sub-title text-center">
-    <div>*** Add a burger and then devour it, just for fun. ***</div>
-  </div>
+<div class="container area">
+    <div class="sub-title text-center">
+        <div>*** Add a burger and then devour it, just for fun. ***</div>
+    </div>
 
-  <div class="row">
-    <div class="col-lg-4 text-center col2">
-      <div class="not-eaten text-center">
-        <h4 class="burger-heading">Burgers ready to eat.</h4>
-        <ul>
-          {{#each burgers}}
-          {{#unless this.devoured}}
-          <li>
-            <div class="burger-line"><span class="burger-name">{{this.burger_name}}</span>
-              <button class="eat-burger" data-id="{{this.id}}">Devour!</button>
+    <div class="row">
+        {{!-- <div class="col-lg-1 text-center col1"></div> --}}
+        <div class="col-lg-5 text-center col2">
+            <div class="not-eaten text-center">
+                <h4 class="burger-heading">Burgers ready to eat.</h4>
+                <ul>
+                    {{#each burgers}}
+                    {{#unless this.devoured}}
+                    <li>
+
+                        <div class="burger-area">
+                            <div class="row">
+                                <div class="col-lg-9 text-center">
+                                    <div class="burger-name">Customer: <span>{{this.Customer.customer_name}}</span>,
+                                        Burger: {{this.burger_name}}
+
+                                    </div>
+
+                                    {{!-- <div class="customer-name">
+                                        <input type="text" class="customer-input" name="customer" placeholder="customer name">
+
+                                    </div> --}}
+                                </div>
+                                <div class="col-lg-3 text-center">
+                                    {{!-- <button id="customer-btn" class="add-customer">Add Customer</button> --}}
+                                    <button id="eat-button" class="eat-burger" data-id="{{this.id}}">Devour!</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- <div class="burger-line"><span class="burger-name">{{this.burger_name}}</span>,
+                    <span class="customer-name">{{this.customer}}</span>
+                  <button class="eat-burger" data-id="{{this.id}}">Devour!</button>
+                </div> -->
+                    </li>
+                    <br>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
             </div>
-          </li>
-          <br>
-          {{/unless}}
-          {{/each}}
-        </ul>
-      </div>
-    </div>
+        </div>
 
-    <div class="col-lg-4 text-center col3">
-      <div class="image-area text-center">
-        <img class="image-info text-center" src="/assets/img/yellow_burger.jpg">
-      </div>
-      <hr>
-      <div class="add-area text-center">
-
-        <h2 class="text-center">Add A Burger!</h2>
-        <h4 class="text-center">(get creative)</h4>
-        <input type="text" name="name" id="added-burger">
-        <button id="submit">Add New Burger</button>
-      </div>
-    </div>
-
-
-    <div class="col-lg-4 text-center col4">
-      <div class="eaten text-center">
-        <h4 class="burger-heading">Burgers you Devoured!</h4>
-        <ul>
-          {{#each burgers}}
-          {{#if this.devoured}}
-          <li>
-            <div class="eaten"><span class="eaten-burger">{{this.burger_name}}</span> 
-             <button class="delete-burger" data-name="{{this.burger_name}}">X</button>
-        
+        <div class="col-lg-2 text-center col3">
+            <div class="image-area text-center">
+                <img class="image-info text-center" src="/assets/img/yellow_burger.jpg">
             </div>
-            
-          </li>
-          {{/if}}
-          {{/each}}
-        </ul>
-      </div>
+        </div>
+
+
+        <div class="col-lg-5 text-center col4">
+            <div class="eaten text-center">
+                <h4 class="burger-heading">Burgers you Devoured!</h4>
+                <ul>
+                    {{#each burgers}}
+                    {{#if this.devoured}}
+                    <li>
+                        <div class="devoured-area text-center">
+                            <div class="row">
+                                <div class="col-lg-9 text-center">
+                                    <div class="devoured text-center">
+                                        
+                                        <div>{{this.Customer.customer_name}} ate: 
+                                            <span>{{this.burger_name}} !!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 text-center">
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- <p>{{this.burger_name}} </p>
+                <br> -->
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        {{!-- <div class="col-lg-1 text-center col5"></div> --}}
     </div>
-  </div>
+    <br>
+    <hr>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="add-customer-area text-center">
+
+                <h2 class="text-center">Enter Customer information</h2>
+
+
+                <form id="add-customer">
+                    <input type="text" id="customer_name" placeholder="customer name">
+                    <!-- <input type="text" name="customer" placeholder="customer name"> -->
+                    <button id="submit-customer">Add New Customer</button>
+                </form>
+
+
+
+                <!-- <form class="text-center" method="POST" action="/api/add">
+                        <input type="text" name="customer_name" placeholder="customer name">
+                       
+                        <button type="submit">Add New Customer</button>
+                    </form> -->
+            </div>
+            <br>
+            <div class="add-burger-area text-center">
+
+                <h2 class="text-center">Enter Order information</h2>
+
+                <form id="cms">
+                    <div class="form-group">
+                        <label for="title">Enter Burger Name:</label>
+                        <input placeholder="Burger Name" type="text" class="form-control" id="burger">
+                        <br />
+
+                        <div class="form-group">
+                            <label for="category">Select Customer:</label>
+                            <select class="custom-select" id="customer">
+                            </select>
+                        </div>
+                        <br />
+                        <button id="submit-order" class="btn btn-success submit">Enter Order</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 
 <footer class="footer-area text-center">
-  <div class="footer-info txt-center">
-    Created by BJ Smith, with the help of Node.js
-  </div>
+    <div class="footer-info txt-center">
+        Created by BJ Smith, with the help of Node.js
+    </div>
 </footer>
