@@ -29,6 +29,7 @@ app.use(express.static(__dirname + "/public"))
 
 // Routes
 // =============================================================
+require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 require("./routes/customer-api-routes.js")(app);
 

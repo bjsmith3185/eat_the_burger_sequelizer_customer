@@ -12,11 +12,11 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
 
-        customer_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+        // customer_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
             
-        },
+        // },
         
         devoured: {
             type: DataTypes.BOOLEAN,
@@ -26,15 +26,15 @@ module.exports = function (sequelize, DataTypes) {
 
     });
 
-    // Burgers.associate = function(models) {
-    //     // We're saying that a Post should belong to an Author
-    //     // A Post can't be created without an Author due to the foreign key constraint
-    //     Burgers.belongsTo(models.Customers, {
-    //       foreignKey: {
-    //         allowNull: false
-    //       }
-    //     });
-    //   };
+    Burgers.associate = function(models) {
+        // We're saying that a Post should belong to an Author
+        // A Post can't be created without an Author due to the foreign key constraint
+        Burgers.belongsTo(models.Customers)
+            // {
+            // include: [{model: Owner}]
+            // }
+
+      };
     
 
 

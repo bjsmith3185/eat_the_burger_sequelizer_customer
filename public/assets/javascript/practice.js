@@ -26,46 +26,72 @@ $( document ).ready(function() {
     
         })
 
-        $("#submit-order").on("click", function(event){
-            event.preventDefault();
-            var burger = $("#burger").val().trim();
-            var customerId = $(".customerSelect").attr("data-customer");
+        // $("#submit-order").on("click", function(event){
+        //     event.preventDefault();
+        //     var burger = $("#burger").val().trim();
+        //     var customerId = $(".customerSelect").attr("data-customer");
 
-            console.log(burger +"  " + customerId)
+        //     console.log(burger +"  " + customerId)
 
-            var data = {
-                burger: $("#burger").val().trim(),
-                customer_id: $(".customerSelect").attr("data-customerID")
-            }
-
-            console.log(data)
-            $.ajax("/api/burger/add", {
-                type: "post",
-                data: data
-              }).then(
-                function() {
-                  location.reload();
-                }
-              );
-        })
-    
-    
-        // $(".eat-burger").on("click", function(event) {
-        //   var id = $(this).attr("data-id");
-    
-        //   var data = {
-        //     devoured: true
-        //   }
-    
-        //   $.ajax("/api/update/" + id, {
-        //     type: "PUT",
-        //     data: data
-        //   }).then(
-        //     function() {
-        //       location.reload();
+        //     var data = {
+        //         burger: $("#burger").val().trim(),
+        //         customer_id: $(".customerSelect").attr("data-customerID")
         //     }
-        //   );
-        // });
+
+        //     console.log(data)
+        //     $.ajax("/api/burger/add", {
+        //         type: "post",
+        //         data: data
+        //       }).then(
+        //         function() {
+        //           location.reload();
+        //         }
+        //       );
+        // })
+
+        //----------------------------------------------------------------------
+
+
+        $("#submit-order").on("click", function(event){
+          event.preventDefault();
+          var burger = $("#burger").val().trim();
+          var customerId = $(".customerSelect").attr("data-customer");
+
+          console.log(burger +"  " + customerId)
+
+          var data = {
+              burger: $("#burger").val().trim(),
+              customer_id: $(".customerSelect").attr("data-customerID")
+          }
+
+          console.log(data)
+          $.ajax("/api/burger/add", {
+              type: "post",
+              data: data
+            }).then(
+              function() {
+                location.reload();
+              }
+            );
+      })
+    
+    
+        $(".eat-burger").on("click", function(event) {
+          var id = $(this).attr("data-id");
+    
+          var data = {
+            devoured: true
+          }
+    
+          $.ajax("/api/update/" + id, {
+            type: "PUT",
+            data: data
+          }).then(
+            function() {
+              location.reload();
+            }
+          );
+        });
     
 
         // Getting jQuery references to the post body, title, form, and author select
