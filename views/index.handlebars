@@ -1,0 +1,67 @@
+<div class="main-title text-center">Eat the Burgers!</div>
+
+<div class="container-fluid">
+  <div class="sub-title text-center">
+    <div>*** Add a burger and then devour it, just for fun. ***</div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 text-center col2">
+      <div class="not-eaten text-center">
+        <h4 class="burger-heading">Burgers ready to eat.</h4>
+        <ul>
+          {{#each burgers}}
+          {{#unless this.devoured}}
+          <li>
+            <div class="burger-line"><span class="burger-name">{{this.burger_name}}</span>
+              <button class="eat-burger" data-id="{{this.id}}">Devour!</button>
+            </div>
+          </li>
+          <br>
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-4 text-center col3">
+      <div class="image-area text-center">
+        <img class="image-info text-center" src="/assets/img/yellow_burger.jpg">
+      </div>
+      <hr>
+      <div class="add-area text-center">
+
+        <h2 class="text-center">Add A Burger!</h2>
+        <h4 class="text-center">(get creative)</h4>
+        <input type="text" name="name" id="added-burger">
+        <button id="submit">Add New Burger</button>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 text-center col4">
+      <div class="eaten text-center">
+        <h4 class="burger-heading">Burgers you Devoured!</h4>
+        <ul>
+          {{#each burgers}}
+          {{#if this.devoured}}
+          <li>
+            <div class="eaten"><span class="eaten-burger">{{this.burger_name}}</span> 
+             <button class="delete-burger" data-name="{{this.burger_name}}">X</button>
+        
+            </div>
+            
+          </li>
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-area text-center">
+  <div class="footer-info txt-center">
+    Created by BJ Smith, with the help of Node.js
+  </div>
+</footer>

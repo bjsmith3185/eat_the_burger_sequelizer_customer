@@ -1,0 +1,36 @@
+
+add burger
+
+add customer after burger is created
+
+- focusOut do a POST to the customer table
+    this will create a customer_name and customerID
+
+- on devour, do a PUT
+    this will update the devoured to true
+    this will update the burger table with a customerID
+
+    
+
+
+--------------------------------------------
+
+- create a new model  customer.js
+    - table name customers
+
+        - customer_name
+
+- create an input next to the burgers ready to devour area
+- adding a custoer name here will grab the burger id????
+
+update the Burgers table with the customer id
+
+
+devour button will      
+- display a 'join" for burger_name and customer_name
+
+
+
+
+
+
